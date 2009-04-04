@@ -1,5 +1,44 @@
-Requirements:
-- make
-- g++
-- curl
-- boost
+
+Wymagania :
+
+	+ make, g++, stl   - do kompilacji :)
+	+ curl             - do polaczen http
+	+ boost            - do wyrazen regularnych
+
+Uzycie :
+
+	$ make 
+	$ cd ./bot/
+	
+	Edycja pliku './primary.queue', czyli dodanie linków do
+	plikow na RapidShare.com. Kolejne pozycje w osobnych 
+	linniach.
+
+	$ ./Bot 
+
+	W trakcie dzialania programu mozna dodawac nowe zlecenia 
+	pobrania. Tym razem jednak do pliku './extends.queue'.
+	Nowe pozycje zapisujemy w osobnych linniach. Po chwili,
+	bot wczyta nowe linnie i doda do pliku './primary.queue'.
+	
+	W pliku './primary.queue' utrzymywany jest aktualny stan
+	kolejki. W pierwszej linni znajduje sie aktualnie 
+	pobierany plik. Gdy plik bedzie pusty, bot konczy prace.
+	Mozna rowniez bezpiecznie zatrzymac dzialanie programu w
+	dowolnym momencie, po ponownym uruchomieniu program 
+	rozpocznie pobierac pierwszy plik z kolejki. Do pliku 
+	'./raports.queue' beda dopisywane informacje o pobranych
+	plikach(lub nie pobranych). 
+
+	W trakcie dzialania program bedzie tworzyl plik
+	tymczasowy './tempora.queue' sluzacy jako kopia 
+	bezpieczenstwa dla glownego pliku './primary.queue'. 
+
+	Pobierane pliki sa zapisywane do katalogu './d/', 
+	dodatkowo pliki *.html oraz naglowki http beda zapisywane
+	do katalogu './s/'. 
+
+	Natomiast do pliku './rs.dia' sa dopisywane informacje od
+	biblioteki. Do pliku './rs.speed' sa dopisywane informacje
+	na temat chwilowej predkosci pobierania.
+

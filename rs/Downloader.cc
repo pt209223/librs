@@ -1,6 +1,6 @@
 /**
- * @brief Pobieranie plikow z RS
- * @author Piotr Truszkowski 
+ * @biref Pobieracz plikow.
+ * @author Piotr Truszkowski
  */
 
 #include <rs/Downloader.hh>
@@ -60,10 +60,10 @@ static bool Reg_find(const char *str, const boost::regex &reg, std::string &s1) 
 //static const char *RS_ServerBusy2 = "We regret that currently we have no available slots for free users";
 //static const char *RS_ActionUrl2 = "<form name=\"dlf\" action=\"";
 
-static const size_t WaitingForLater = 60;
-static const size_t WaitingForBusy = 120;
-static const size_t WaitingForRivalry = 60;
-static const size_t WaitingForLimit = 120;
+static const size_t WaitingForLater    =  60;
+static const size_t WaitingForBusy     = 120;
+static const size_t WaitingForRivalry  =  60;
+static const size_t WaitingForLimit    = 120;
 
 /*** Wyjatki, przy pobieraniu plikow ***/
 

@@ -1,5 +1,5 @@
 /**
- * @brief Bot do sciagania plikow z RS.
+ * @brief Bot do pobierania plikow
  * @author Piotr Truszkowski
  */
 
@@ -91,8 +91,8 @@ int main(int argc, char **argv)
 
 	rsd.setDownloadDir("./d/");
 	rsd.setSessionsDir("./s/");
-	rsd.setDiagnostic("./rsd.dia");
-	rsd.setSpeedRaporting("./rsd.speed", 10);
+	rsd.setDiagnostic("./rs.dia");
+	rsd.setSpeedRaporting("./rs.speed", 10);
 
 	// Kolejka url-i do pobrania...
 	list<string> queue;

@@ -1,6 +1,6 @@
 /**
- * @brief Pobieranie plikow z RS
- * @author Piotr Truszkowski 
+ * @brief Pobieracz plikow.
+ * @author Piotr Truszkowski
  */
 
 #ifndef __RS_DOWNLOADER_HH__
@@ -14,8 +14,10 @@
 
 class RSDownloader {
 	public:
-		// Klasa singleton - istnieje tylko jeden obiekt tej  klasy. 
-		// Z RapidShare.com mozna sciagac tylko jeden plik naraz.
+		/**
+		 * Klasa singleton - istnieje tylko jeden obiekt tej klasy.
+		 * Z RapidShare.com mozna sciagac tylko jeden plik naraz.
+		 */
 		static RSDownloader &instance(void);
 
 		/** 
@@ -44,25 +46,34 @@ class RSDownloader {
 			Unknown      =  11  // ?
 		};
 
+		/** 
+		 * @brief Funkcja zwracajaca opis statusu.
+		 */
 		static const char *descr(Status s) throw();
 
 		static const size_t UrlMaxLen = 1024;
 
-		// Pobranie aktualnego statusu
+		/**
+		 * @brief Pobranie aktualnego statusu
+		 */
 		Status getStatus(void) throw() 
 		{ 
 			Lock l(m_lock); 
 			return m_status; 
 		}
 
-		// Pobranie aktualnego urla
+		/**
+		 * @brief Pobranie url-a do aktualnie sciaganego pliku.
+		 */
 		void getUrl(std::string &url) throw() 
 		{ 
 			Lock l(m_lock); 
 			url = m_url;
 		};
 
-		// Pobranie postepu sciaganego pliku
+		/**
+		 * @brief Pobranie postepu sciaganego pliku.
+		 */
 		void getProgress(
 				Status &status,     // status
 				std::string &url,   // url
@@ -83,13 +94,21 @@ class RSDownloader {
 			waiting = m_waiting;
 		}
 
-		// Ustaw katalog do ktorego zapisywac pliki
+		/**
+		 * @brief Ustaw katalog do ktorego zapisywac pliki
+		 */
 		void setDownloadDir(const std::string &path) throw();
-		// Ustaw katalog do ktorego zapisywac strony
+		/**
+		 * @brief Ustaw katalog do ktorego zapisywac strony
+		 */
 		void setSessionsDir(const std::string &path) throw();
-		// Ustaw plik diagnostyczny
+		/**
+		 * @brief Ustaw plik diagnostyczny
+		 */
 		void setDiagnostic(const std::string &path) throw();
-		// Ustaw plik z raportami predkosci chwilowej
+		/**
+		 * @brief Ustaw plik z raportami predkosci chwilowej
+		 */
 		void setSpeedRaporting(const std::string &path, uint32_t difsec = 10) throw();
 
 	private:
