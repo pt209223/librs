@@ -81,7 +81,7 @@ class File {
 			if (m_fd == -1) {
 				if (errno == EACCES || errno == EPERM) throw ENoAccess();
 				if (errno == ENOENT || errno == ENOTDIR) throw ENotExists();
-				throw EInternal("FileBinary::open: %d, %s", errno, strerror(errno));
+				throw EInternal("File::open: %d, %s", errno, strerror(errno));
 			}
 
 			m_mode = mode;
@@ -91,7 +91,7 @@ class File {
 		{
 			if (m_fd != -1) {
 				if (::close(m_fd)) 
-					throw EInternal("FileBinary::close: %d, %s", errno, strerror(errno));
+					throw EInternal("File::close: %d, %s", errno, strerror(errno));
 				m_fd = -1;
 				m_mode = 0;
 			}
@@ -108,7 +108,7 @@ class File {
 				int rd = ::read(m_fd, ((char*)buf)+done, len-done);
 				if (rd < 0) {
 					if (errno == EINTR || errno == EAGAIN) continue;
-					throw EInternal("FileBinary::read: %d, %s", errno, strerror(errno));
+					throw EInternal("File::read: %d, %s", errno, strerror(errno));
 				}
 				done += rd;
 			}
@@ -126,7 +126,7 @@ class File {
 				if (wr < 0) {
 					if (errno == EINTR || errno == EAGAIN) continue;
 					if (errno == ENOSPC) throw ENoSpace();
-					throw EInternal("FileBinary::write: %d, %s", errno, strerror(errno));
+					throw EInternal("File::write: %d, %s", errno, strerror(errno));
 				}
 				done += wr;
 			}
@@ -135,7 +135,7 @@ class File {
 		virtual void sync(void) throw()
 		{
 			if (m_fd != -1 && fsync(m_fd)) 
-				throw EInternal("FileBinary::sync: %d, %s", errno, strerror(errno));
+				throw EInternal("File::sync: %d, %s", errno, strerror(errno));
 		}
 
 		virtual off_t seek(off_t offset = 0, Whence w = Set) throw(EFile)
@@ -144,7 +144,7 @@ class File {
 
 			off_t noff = lseek(m_fd, offset, w);
 			if (noff != -1) 
-				throw EInternal("FileBinary::seek: %d, %s", errno, strerror(errno));
+				throw EInternal("File::seek: %d, %s", errno, strerror(errno));
 
 			return noff;
 		}
@@ -155,7 +155,7 @@ class File {
 
 			struct stat st;
 			if (fstat(m_fd, &st)) 
-				throw EInternal("FileBinary::size: %d, %s", errno, strerror(errno));
+				throw EInternal("File::size: %d, %s", errno, strerror(errno));
 
 			return st.st_size;
 		}
