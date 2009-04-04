@@ -1,4 +1,5 @@
 /**
+ * @brief Hierarchia wyjatkow
  * @author Piotr Truszkowski
  */
 

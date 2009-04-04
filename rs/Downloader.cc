@@ -1,3 +1,8 @@
+/**
+ * @brief Pobieranie plikow z RS
+ * @author Piotr Truszkowski 
+ */
+
 #include <rs/Downloader.hh>
 #include <rs/File.hh>
 #include <rs/Time.hh>

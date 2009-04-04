@@ -1,3 +1,8 @@
+/**
+ * @brief Laczenie poprzez protokol http z wykorzystaniem curl-a.
+ * @author Piotr Truszkowski
+ */
+
 #include <curl/curl.h>
 
 #include <rs/Http.hh>

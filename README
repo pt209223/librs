@@ -1,0 +1,5 @@
+Requirements:
+- make
+- g++
+- curl
+- boost

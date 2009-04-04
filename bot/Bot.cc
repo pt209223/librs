@@ -1,3 +1,8 @@
+/**
+ * @brief Bot do sciagania plikow z RS.
+ * @author Piotr Truszkowski
+ */
+
 #include <rs/Downloader.hh>
 #include <rs/Time.hh>
 #include <rs/File.hh>
