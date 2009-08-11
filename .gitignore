@@ -1,1 +1,12 @@
 tags
+rs/tags
+rs/Makefile.deps
+rs/*.o
+rs/*.a
+bot/tags
+bot/Makefile.deps
+bot/*.o
+bot/*.a
+bot/Bot
+work
+
