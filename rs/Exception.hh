@@ -14,9 +14,9 @@
 #include <stdarg.h>
 
 class Exception : public std::exception {
-	public:
-		Exception(void) throw() { }
-		const char *what(void) const throw() { return "Exception"; }
+  public:
+    Exception(void) throw() { }
+    const char *what(void) const throw() { return "Exception"; }
 };
 
 #define DEF_EXC(name, up)                       \
